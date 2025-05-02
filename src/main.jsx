@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App6.jsx'
+import App from './App10.jsx'
 import './index.css'
 import App2 from './App2.jsx'
 
