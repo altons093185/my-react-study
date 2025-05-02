@@ -34,7 +34,7 @@ function ScoreTableHeader() {
   function ScoreTableBody({ scores }) {
     return (
       <tbody>
-        {scores.map((std) => {
+        {aaa.map((std) => {
           const pass = std.score >= 60 ? "V" : "X";
           return (
             <tr key={std.id}>
