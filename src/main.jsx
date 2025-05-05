@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom/client'
 import './index.css'
 import App2 from './App2.jsx'
 import TodoList from './TodoList.jsx'
-import ShoppingCart from './test.jsx'
+import ShoppingCart from './ShoppingCart.jsx'
 
 
 

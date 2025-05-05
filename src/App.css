@@ -40,3 +40,12 @@
 .read-the-docs {
   color: #888;
 }
+/* new */
+table {
+  margin: 0 auto;
+}
+
+input,
+button {
+  margin: 0.5rem;
+}

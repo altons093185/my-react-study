@@ -5,9 +5,10 @@ function ShoppingCart() {
   const inputNameRef = useRef();
   const inputPriceRef = useRef();
   const [products, setProducts] = useState([]);
-
+  const [editIndex, setEditIndex] = useState(null);
   const [editName, setEditName] = useState("");
   const [editPrice, setEditPrice] = useState("");
+
 
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
@@ -36,24 +37,26 @@ function ShoppingCart() {
     return total;
   };
 
-  const handleUpdate = (index) => {
-    // const updated = products.map((p, i) => {
-    //   if (i === index) {
-    //     return { ...p, ProductName: inputNameRef.current.value, ProductPrice: inputPriceRef.current.value };
-    //   }
-    //   return p;
-    // });
-    // setProducts(updated);
+  const handleDelete = (index) => {
+    const updated = products.filter((product, i) => i !== index);
+    setProducts(updated);
   };
 
   const handleEdit = (index) => {
+    setEditIndex(index);
+    //點選編輯 設定那個欄位原本的值
     setEditName(products[index].ProductName);
     setEditPrice(products[index].ProductPrice);
   };
 
-  const handleDelete = (index) => {
-    const updated = products.filter((product, i) => i !== index);
+  const handleSave = (index) => {
+    const updated = [...products];
+    updated[index] = {
+      ProductName: editName,
+      ProductPrice: editPrice,
+    };
     setProducts(updated);
+    setEditIndex(null);
   };
 
   return (
@@ -73,30 +76,42 @@ function ShoppingCart() {
           <tr>
             <th>商品名稱</th>
             <th>商品價格</th>
-            <th>編輯按鈕</th>
-            <th>刪除按鈕</th>
+            <th>操作</th>
           </tr>
         </thead>
         <tbody>
           {products.map((p, index) => (
             <tr key={index}>
-              <td>{p.ProductName}</td>
-              <td>{p.ProductPrice}</td>
-              <td>
-                <button onClick={() => handleUpdate(index)}>編輯</button>
-              </td>
-              <td>
-                <button onClick={() => handleDelete(index)}>刪除</button>
-              </td>
+              {editIndex === index ? (
+                <>
+                  <td>
+                    <input value={editName} onChange={(e) => setEditName(e.target.value)} />
+                  </td>
+                  <td>
+                    <input value={editPrice} onChange={(e) => setEditPrice(e.target.value)} />
+                  </td>
+                  <td>
+                    <button onClick={() => handleSave(index)}>儲存</button>
+                  </td>
+                </>) : (<>
+                  <td>{p.ProductName}</td>
+                  <td>{p.ProductPrice}</td>
+                  <td>
+                    <div>
+                      <button onClick={() => handleEdit(index)}>編輯</button>
+                      <button onClick={() => handleDelete(index)}>刪除</button>
+                    </div>
+                  </td>
+                </>)}
             </tr>
           ))}
-        </tbody>
-        <tfoot>
-          <tr>
-            <td colSpan="4">總計: {handleCountTotal()}</td>
-          </tr>
-        </tfoot>
-      </table>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colSpan="4">總計: {handleCountTotal()}</td>
+        </tr>
+      </tfoot>
+    </table >
     </>
   );
 }

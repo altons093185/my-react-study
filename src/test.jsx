@@ -40,7 +40,8 @@ function ShoppingCart() {
   };
 
   const handleEdit = (index) => {
-    // setEditIndex(index);
+    setEditIndex(index);
+    //點選編輯顯示那個欄位原本的值
     setEditName(products[index].ProductName);
     setEditPrice(products[index].ProductPrice);
   };
@@ -102,7 +103,7 @@ function ShoppingCart() {
                 {editIndex === index ? (
                   <button onClick={() => handleSave(index)}>儲存</button>
                 ) : (
-                  <button onClick={() => handleEdit(index)}>編輯</button>
+                    <button onClick={() => handleEdit(index)}>編輯</button>
                 )}
               </td>
             </tr>
