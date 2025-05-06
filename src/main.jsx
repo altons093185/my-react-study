@@ -4,13 +4,14 @@ import ReactDOM from 'react-dom/client'
 import './index.css'
 import App2 from './App2.jsx'
 import TodoList from './TodoList.jsx'
-import ShoppingCart from './ShoppingCart.jsx'
+import ShoppingCart from './ShoppingCart3.jsx'
+import Cart from './Cart_componets/Cart4.jsx'
 
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <ShoppingCart />
+    <Cart />
 
   </React.StrictMode>,
 )
