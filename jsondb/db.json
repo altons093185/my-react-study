@@ -1,0 +1,10 @@
+{
+  "products": [
+    { "id": 1, "name": "蘋果", "price": 50 },
+    { "id": 2, "name": "香蕉", "price": 30 },
+    { "id": 3, "name": "芒果", "price": 60 },
+    { "id": 4, "name": "葡萄", "price": 70 },
+    { "id": 5, "name": "西瓜", "price": 90 },
+    { "id": 6, "name": "柳丁", "price": 80 }
+  ]
+}
