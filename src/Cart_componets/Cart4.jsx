@@ -30,7 +30,7 @@ function Cart() {
   // [name]: 代表當name改變時就會重新執行這段 effect
   // useEffect(() => {}, [])
   useEffect(() => {
-    fetch("http://localhost:3000/products")
+    fetch("http://localhost:3000/products") //from json-server
       .then(res => res.json())
       .then(data => {
         setProducts(data);
